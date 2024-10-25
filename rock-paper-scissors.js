@@ -1,63 +1,77 @@
-let computerMove = '';  // Declare a variable to store the computer's move
+let resultEl = document.getElementById('result'); // Renamed variable to avoid conflict
+let computerChoiceEl = document.getElementById('computer-choice');
+let scoreEl = {
+    wins: 0,
+    loses: 0,
+    draws: 0
+};
 
-// Function to randomly pick the computer's move
-function pickComputerMove() {
-    let randomNumber = Math.random();  // Generate a random number between 0 and 1
+function computerMove() {
+    const randomNumber = Math.random();
+    let computerMove = '';
 
-    // If the random number is between 0 and 1/3, the computer chooses 'rock'
-    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    if (randomNumber < 1 / 3) {
         computerMove = 'rock';
-    // If the random number is between 1/3 and 2/3, the computer chooses 'paper'
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+    } else if (randomNumber < 2 / 3) {
         computerMove = 'paper';
-    // If the random number is between 2/3 and 1, the computer chooses 'scissors'
     } else {
         computerMove = 'scissors';
     }
+
+    return computerMove;
 }
 
-// Function to determine the result based on the player's move and the computer's move
-function getResult(playerMove) {
-    let result = '';  // Declare a variable to store the result
+function playGame(playerMove) {
+    const computerChoice = computerMove();
+    computerChoiceEl.textContent = `Computer chose: ${computerChoice}`;
 
-    // If the player's move is the same as the computer's move, it's a tie
-    if (playerMove === computerMove) {
-        result = 'It\'s a tie!';
-    // Check if the player wins based on the rules of rock-paper-scissors
-    } else if (
-        (playerMove === 'rock' && computerMove === 'scissors') ||
-        (playerMove === 'paper' && computerMove === 'rock') ||
-        (playerMove === 'scissors' && computerMove === 'paper')
-    ) {
-        result = 'You win!';
-    // If the player doesn't tie or win, the player loses
-    } else {
-        result = 'You lose!';
+    let gameResult = ''; // Renamed to avoid conflict with resultEl
+    if (playerMove === 'rock') {
+       if (computerChoice === 'rock') {
+        gameResult = 'tie';
+       } else if (computerChoice === 'paper') {
+        gameResult = 'lose';
+       } else if (computerChoice === 'scissors') {
+        gameResult = 'win';
+       }
+    } else if (playerMove === 'paper') {
+       if (computerChoice === 'rock') {
+        gameResult = 'win';
+       } else if (computerChoice === 'scissors') {
+        gameResult = 'lose';
+       } else if (computerChoice === 'paper') {
+        gameResult = 'tie';
+       }
+    } else if (playerMove === 'scissors') {
+       if (computerChoice === 'paper') {
+        gameResult = 'win';
+       } else if (computerChoice === 'rock') {
+        gameResult = 'lose';
+       } else if (computerChoice === 'scissors') {
+        gameResult = 'tie';
+       }
     }
 
-    return result;  // Return the result of the game
+    if (gameResult === 'win') {
+        scoreEl.wins++;
+    } else if (gameResult === 'tie') {
+        scoreEl.draws++;
+    } else {
+        scoreEl.loses++;
+    }
+
+    resultEl.innerText = `You picked ${playerMove} and the computer picked ${computerChoice}. Result: ${gameResult}
+    Wins: ${scoreEl.wins}, Losses: ${scoreEl.loses}, Draws: ${scoreEl.draws}`;
 }
 
-// Function that runs when the player selects 'rock'
 function rock() {
-    pickComputerMove();  // Call function to randomly pick the computer's move
-    const result = getResult('rock');  // Get the result of the game with 'rock' as the player's move
-    document.getElementById('computer-choice').textContent = `Computer chose: ${computerMove}`;  // Update the HTML to show the computer's move
-    document.getElementById('result').textContent = result;  // Update the HTML to show the result of the game
+    playGame('rock');
 }
 
-// Function that runs when the player selects 'paper'
 function paper() {
-    pickComputerMove();  // Call function to randomly pick the computer's move
-    const result = getResult('paper');  // Get the result of the game with 'paper' as the player's move
-    document.getElementById('computer-choice').textContent = `Computer chose: ${computerMove}`;  // Update the HTML to show the computer's move
-    document.getElementById('result').textContent = result;  // Update the HTML to show the result of the game
+    playGame('paper');
 }
 
-// Function that runs when the player selects 'scissors'
 function scissors() {
-    pickComputerMove();  // Call function to randomly pick the computer's move
-    const result = getResult('scissors');  // Get the result of the game with 'scissors' as the player's move
-    document.getElementById('computer-choice').textContent = `Computer chose: ${computerMove}`;  // Update the HTML to show the computer's move
-    document.getElementById('result').textContent = result;  // Update the HTML to show the result of the game
+    playGame('scissors');
 }
