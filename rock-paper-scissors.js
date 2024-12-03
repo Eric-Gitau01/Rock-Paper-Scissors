@@ -1,9 +1,9 @@
 let resultEl = document.getElementById('result'); // Renamed variable to avoid conflict
 let computerChoiceEl = document.getElementById('computer-choice');
-let scoreEl = {
+let scoreEl = JSON.parse(localStorage.getItem('scoreEl'))|| {
     wins: 0,
-    loses: 0,
-    draws: 0
+    losses: 0,
+    ties: 0,
 };
 
 function computerMove() {
@@ -60,6 +60,8 @@ function playGame(playerMove) {
         scoreEl.loses++;
     }
 
+    localStorage.setItem('scoreEl', JSON.stringify(scoreEl));
+
     resultEl.innerText = `You picked ${playerMove} and the computer picked ${computerChoice}. Result: ${gameResult}
     Wins: ${scoreEl.wins}, Losses: ${scoreEl.loses}, Draws: ${scoreEl.draws}`;
 }
@@ -74,4 +76,12 @@ function paper() {
 
 function scissors() {
     playGame('scissors');
+}
+
+function resetBtn() {
+    scoreEl.wins = 0;
+    scoreEl.loses = 0;
+    scoreEl.draws = 0;
+    localStorage.removeItem('scoreEl');
+    resultEl.innerText = 'Wins: 0, Losses: 0, Draws: 0';
 }
