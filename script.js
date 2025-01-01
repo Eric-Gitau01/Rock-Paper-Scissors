@@ -94,7 +94,8 @@ const add5 = document.querySelector('.+5-btn')
 const removeItemBtn = document.querySelector('.removeItem-btn')
 const substract2 = document.querySelector('.-2-btn')
 const substract3 = document.querySelector('.-3-btn')
-const resetBtn = document.querySelector('.reset-btn')
+const resetBtn = document.querySelector('.reset-btn') 
+
 
 
 function updateCartQuality(change) {
