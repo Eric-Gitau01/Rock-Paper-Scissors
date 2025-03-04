@@ -3,30 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissior</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Rock paper scissor </title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- <div class="main">
-        <h1>Rock Paper Scissior</h1>
-        <p>let play this game I bet you can't beat me!!!</p>
-        <div class="button-btn">
-            <button class="rock-btn" onclick="rock()">Rock</button>
-            <button class="paper-btn" onclick="paper()">Paper</button>
-            <button class="scissor-btn" onclick="scissior()">Scissior</button>
-            <button class="reset-btn" onclick="resetGame()">Reset score</button>
-        </div>
-    </div> -->
-    <button class="showQuality-btn">Show Quality</button>
-    <button class="addItem-btn">Add to cart</button>
-    <button class="+2">+2</button>
-    <button class="+3-btn">+3</button>
-    <button class="+4-btn">+4</button>
-    <button class="+5-btn">+5</button>
-    <button class="removeItem-btn">Remove from cart</button>
-    <button class="-2-btn">-2</button>
-    <button class="-3-btn">-3</button>
-    <button class="reset-btn">Reset Cart</button>
+    <h1>Rock paper scissor</h1>
+    <p>Choose your move</p>
+    <div class="btn-group">
+        <button id="rock" onclick="rock()">Rock</button>
+        <button id="paper" onclick="paper()">Paper</button>
+        <button id="scissors" onclick="scissors()">Scissors</button>
+    </div>
+    <p id="result"></p>
     <script src="script.js"></script>
 </body>
 </html>
