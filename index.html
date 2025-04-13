@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock paper scissor </title>
-    
-    <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock paper scissor</h1>
-    <p>Choose your move</p>
-    <div class="btn-group">
-        <button id="rock" onclick="rock()">Rock</button>
-        <button id="paper" onclick="paper()">Paper</button>
-        <button id="scissors" onclick="scissors()">Scissors</button>
-    </div>
-    <p id="result"></p>
+    <button onclick="rock()">Rock</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="scissors()">Scissors</button>
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+    <button onclick="resetScore()">button</button>
+
+    <hr>
+    <hr>
+    <p>YouTube subscribe button</p>
+    <button onclick="subscribeBtn()" class="js-subscribe-button">subscribe</button>
+
+    <hr>
+    <hr>
+
+    <P>Amazon Shipping Calculator</P>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-total-cost"></p> 
     <script src="script.js"></script>
 </body>
 </html>
