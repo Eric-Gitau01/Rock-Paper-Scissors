@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 80vh;
+    background:rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    margin: 30px;
+    align-items: center;
+
+}
+
+
+.choice {
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    margin: 20px;
+    text-align: center;
+    font-size: 50px;
+    padding: 20px;
+}
+

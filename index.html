@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="rock()">Rock</button>
-    <button onclick="paper()">Paper</button>
-    <button onclick="scissors()">Scissors</button>
-    <p class="js-result"></p>
-    <p class="js-moves"></p>
-    <p class="js-score"></p>
-    <button onclick="resetScore()">button</button>
-
-    <hr>
-    <hr>
-    <p>YouTube subscribe button</p>
-    <button onclick="subscribeBtn()" class="js-subscribe-button">subscribe</button>
-
-    <hr>
-    <hr>
-
-    <P>Amazon Shipping Calculator</P>
-    <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
-    <button onclick="calculateTotal()">Calculate</button>
-    <p class="js-total-cost"></p> 
+    <div class="container">
+        <h1>You wanna play</h1>
+        <div class="choice">
+             <div id="rock-btn">
+            <img src="img/rock-emoji.png" width="150">
+            </div>
+            <div id="paper-btn">
+                <img src="img/paper-emoji.png" width="150">
+            </div>
+            <div id="scissor-btn">
+                <img src="img/scissors-emoji.png" width="150">
+            </div>
+        </div>
+        <div id="reset-btn">RESET</button>
+        <p id="result-el"></p>
+        <p id="score-el"></p>
+    
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
